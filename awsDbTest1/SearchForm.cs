@@ -16,8 +16,6 @@ namespace awsDbTest1
         }
         public enum Function
         {
-            Search,
-            ShowAll,
             Add,
             Edit,
             Delete
@@ -141,45 +139,37 @@ namespace awsDbTest1
 
         private void addFighterButton_Click(object sender, EventArgs e)
         {
-            if (!passwordIsAccepted)
-            {
-                PasswordForm passwordForm = new(Function.Add);
-                passwordForm.Show();
-            }
-            else
-            {
-                AddForm addForm = new();
-                addForm.Show();
-            }
+            EnterRestrictedZone(Function.Add);
         }
 
         private void editFighterButton_Click(object sender, EventArgs e)
         {
-            if (!passwordIsAccepted)
-            {
-                PasswordForm passwordForm = new(Function.Edit);
-                passwordForm.Show();
-            }
-            else
-            {
-                EditForm editForm = new();
-                editForm.Show();
-            }
+            EnterRestrictedZone(Function.Edit);
         }
 
         private void deleteFighterButton_Click(object sender, EventArgs e)
         {
+            EnterRestrictedZone(Function.Delete);
+        }
+         
+        private void EnterRestrictedZone(Function function)
+        {
             if (!passwordIsAccepted)
             {
-                PasswordForm passwordForm = new(Function.Delete);
+                PasswordForm passwordForm = new(function);
                 passwordForm.Show();
             }
             else
             {
-                DeleteForm deleteForm = new();
-                deleteForm.Show();
+                Form form = function switch
+                {
+                    Function.Add => new AddForm(),
+                    Function.Edit => new EditForm(),
+                    Function.Delete => new DeleteForm(),
+                    _ => throw new NotImplementedException()
+                };
+                form.Show();
             }
-            
         }
     }
     
