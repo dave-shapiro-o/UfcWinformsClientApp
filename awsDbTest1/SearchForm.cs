@@ -97,19 +97,19 @@ namespace awsDbTest1
             switch (comboBox1.SelectedItem)
             {
                 case "Weight":
-                    panel1.Visible = true;             
+                    sliderPanel.Visible = true;             
                     sliderCategoryLabel.Text = "Weight";
                     SetMinTrackBar(3);
                     SetMaxTrackBar(3);
                     break;
                 case "Height":
-                    panel1.Visible = true;                    
+                    sliderPanel.Visible = true;                    
                     sliderCategoryLabel.Text = "Height";
                     SetMinTrackBar(1);
                     SetMaxTrackBar(1);
                     break;
                 default:
-                    panel1.Visible = false;
+                    sliderPanel.Visible = false;
                     break;
             }
         }

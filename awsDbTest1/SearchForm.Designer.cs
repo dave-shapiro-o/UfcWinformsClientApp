@@ -38,7 +38,7 @@ namespace awsDbTest1
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.minLabel = new System.Windows.Forms.Label();
             this.minValueLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.sliderPanel = new System.Windows.Forms.Panel();
             this.sliderCategoryLabel = new System.Windows.Forms.Label();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.maxValueLabel = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@ namespace awsDbTest1
             this.deleteFighterButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.sliderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -147,20 +147,20 @@ namespace awsDbTest1
             this.minValueLabel.TabIndex = 9;
             this.minValueLabel.Text = "min";
             // 
-            // panel1
+            // sliderPanel
             // 
-            this.panel1.Controls.Add(this.sliderCategoryLabel);
-            this.panel1.Controls.Add(this.trackBar2);
-            this.panel1.Controls.Add(this.maxValueLabel);
-            this.panel1.Controls.Add(this.maxLabel);
-            this.panel1.Controls.Add(this.minLabel);
-            this.panel1.Controls.Add(this.minValueLabel);
-            this.panel1.Controls.Add(this.trackBar1);
-            this.panel1.Location = new System.Drawing.Point(593, 13);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(361, 160);
-            this.panel1.TabIndex = 10;
-            this.panel1.Visible = false;
+            this.sliderPanel.Controls.Add(this.sliderCategoryLabel);
+            this.sliderPanel.Controls.Add(this.trackBar2);
+            this.sliderPanel.Controls.Add(this.maxValueLabel);
+            this.sliderPanel.Controls.Add(this.maxLabel);
+            this.sliderPanel.Controls.Add(this.minLabel);
+            this.sliderPanel.Controls.Add(this.minValueLabel);
+            this.sliderPanel.Controls.Add(this.trackBar1);
+            this.sliderPanel.Location = new System.Drawing.Point(593, 13);
+            this.sliderPanel.Name = "sliderPanel";
+            this.sliderPanel.Size = new System.Drawing.Size(361, 160);
+            this.sliderPanel.TabIndex = 10;
+            this.sliderPanel.Visible = false;
             // 
             // sliderCategoryLabel
             // 
@@ -268,7 +268,7 @@ namespace awsDbTest1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1773, 732);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.sliderPanel);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.deleteFighterButton);
@@ -280,8 +280,8 @@ namespace awsDbTest1
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.sliderPanel.ResumeLayout(false);
+            this.sliderPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -300,7 +300,7 @@ namespace awsDbTest1
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label minLabel;
         private System.Windows.Forms.Label minValueLabel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel sliderPanel;
         private System.Windows.Forms.TrackBar trackBar2;
         private System.Windows.Forms.Label maxValueLabel;
         private System.Windows.Forms.Label maxLabel;
