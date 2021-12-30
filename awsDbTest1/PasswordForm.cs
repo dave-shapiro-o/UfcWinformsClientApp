@@ -5,10 +5,10 @@ namespace awsDbTest1
 {
     public partial class PasswordForm : Form
     {
-        internal readonly string formType;
-        public PasswordForm(Enum function)
+        internal readonly SearchForm.Function function;
+        public PasswordForm(SearchForm.Function func)
         {
-            formType = function.ToString();
+            function = func;
             InitializeComponent();
         }
 
@@ -32,23 +32,16 @@ namespace awsDbTest1
             {
                 SearchForm.passwordIsAccepted = true;
                 this.Hide();
-                switch (formType)
-                {                 
-                    case "Edit":
-                        EditForm editForm = new();
-                        editForm.Show();
-                        break;
-                    case "Delete":
-                        DeleteForm deleteForm = new();
-                        deleteForm.Show();
-                        break;
-                    case "Add":
-                    default:
-                        AddForm addForm = new();
-                        addForm.Show();
-                        break;
-                }
-                
+
+                Form form = function switch
+                {
+                    SearchForm.Function.Edit => new EditForm(),
+                    SearchForm.Function.Delete => new DeleteForm(),
+                    SearchForm.Function.Add => new AddForm(),
+                    _ => throw new NotImplementedException()
+                };
+
+                form.Show();
             }
             else
             {
