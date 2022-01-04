@@ -45,7 +45,7 @@ namespace awsDbTest1
                 cmd.Connection = conn;
                 cmd.CommandText = selectAllFighters? 
                     "SELECT * FROM Fighters" :
-                    SearchSelect(cmd, searchText);
+                    SearchSelect(searchText);
                 
                 MySqlDataAdapter adapter = new();
                 adapter.SelectCommand = cmd;
@@ -61,7 +61,7 @@ namespace awsDbTest1
             }
         }
 
-        private string SearchSelect(MySqlCommand cmd, string searchText)
+        private string SearchSelect(string searchText)
         {
             
             switch ((string)comboBox1.SelectedItem)
