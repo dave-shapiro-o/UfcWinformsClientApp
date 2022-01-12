@@ -1,5 +1,5 @@
 ﻿
-namespace awsDbTest1
+namespace UfcWinformsClientApp
 {
     partial class FighterUserControl
     {

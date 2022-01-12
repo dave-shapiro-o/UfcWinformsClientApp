@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace awsDbTest1
+namespace UfcWinformsClientApp
 {
     public partial class FighterUserControl : UserControl
     {

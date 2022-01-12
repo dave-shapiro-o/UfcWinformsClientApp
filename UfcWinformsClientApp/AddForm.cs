@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace awsDbTest1
+namespace UfcWinformsClientApp
 {
     public partial class AddForm : Form
     {

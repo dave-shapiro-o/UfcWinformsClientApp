@@ -3,7 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using MySqlConnector;
 
-namespace awsDbTest1
+namespace UfcWinformsClientApp
 {
     class DbUtility
     {
@@ -12,10 +12,10 @@ namespace awsDbTest1
             var builder = new MySqlConnectionStringBuilder
 
             {
-                Server = "ec2-18-203-4-191.eu-west-1.compute.amazonaws.com",
+                Server = "localhost",
                 Port = 3306,
-                Database = "ufc",
-                UserID = "dave",
+                Database = "ufc-local",
+                UserID = "root",
                 Password = "password",
                 ConnectionTimeout = 30
             };

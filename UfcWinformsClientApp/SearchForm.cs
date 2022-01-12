@@ -4,7 +4,7 @@ using System.Data;
 using System.Windows.Forms;
 using MySqlConnector;
 
-namespace awsDbTest1
+namespace UfcWinformsClientApp
 {
     public partial class SearchForm : Form
     {
@@ -34,7 +34,7 @@ namespace awsDbTest1
             selectAllFighters = true;
             GetData(searchText, dataGridView1);
         }
-
+        
         void GetData(string searchText, DataGridView view)
         {
             using MySqlConnection conn = DbUtility.Connect();

@@ -1,5 +1,5 @@
 ﻿
-namespace awsDbTest1
+namespace UfcWinformsClientApp
 {
     partial class AddForm
     {
@@ -29,7 +29,7 @@ namespace awsDbTest1
         /// </summary>
         private void InitializeComponent()
         {
-            this.fighterUserControl1 = new awsDbTest1.FighterUserControl();
+            this.fighterUserControl1 = new UfcWinformsClientApp.FighterUserControl();
             this.addFighterButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
