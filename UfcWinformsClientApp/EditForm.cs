@@ -24,43 +24,20 @@ namespace UfcWinformsClientApp
             InitializeComponent();
         }
 
-        private void saveFighterButton_Click(object sender, EventArgs e)
-        {
-            url = urlTextBox.Text;
-            name = nameTextBox.Text;
-            nickname = nicknameTextBox.Text;
-            height = int.Parse(heightTextBox.Text);
-            weight = int.Parse(weightTextBox.Text);
-            association = associationTextBox.Text;
-            weightClass = classTextBox.Text;
-            locality = localityTextBox.Text; 
-            country = countryTextBox.Text;
-
-            using MySqlConnection conn = DbUtility.Connect();
-            try
-            {
-                MySqlCommand cmd = new($"UPDATE Fighters SET Url = '{url}', Name = '{name}', Nickname = '{nickname}', Height = {height}, Weight = {weight}, Association = '{association}', Class = '{weightClass}', Locality = '{locality}', Country = '{country}' WHERE Id = {id}", conn);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Database Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            MessageBox.Show($"Records for {name} have been modified!", "Success", MessageBoxButtons.OK);
-            Close();
-        }
-
+        // There's likely a better way to do all this - data binding?
         private void findFighterButton_Click(object sender, EventArgs e)
         {
             using MySqlConnection conn = DbUtility.Connect();
             searchId = fighterIdTextBox.Text;
             try
             {
+                // Get fighter data from the table by the I.D. that the user entered on the form
                 MySqlCommand cmd = new($"SELECT Url, Id, Name, Nickname, Height, Weight, Association, Class, Locality, Country FROM Fighters "
                                     + $"WHERE Id = {int.Parse(searchId)}", conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    // Assign the data to variables
                     url = reader.GetString(0);
                     id = reader.GetInt32(1);
                     name = reader.GetString(2);
@@ -77,6 +54,7 @@ namespace UfcWinformsClientApp
             {
                 MessageBox.Show(ex.Message, "Fighter not found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            // Use the variables to set textbox text
             urlTextBox.Text = url;
             idTextBox.Text = id.ToString();
             nameTextBox.Text = name;
@@ -87,6 +65,34 @@ namespace UfcWinformsClientApp
             classTextBox.Text = weightClass;
             localityTextBox.Text = locality;
             countryTextBox.Text = country;
+        }
+
+        private void saveFighterButton_Click(object sender, EventArgs e)
+        {
+            // Assign the (possibly edited) text in the textboxes to the variables
+            url = urlTextBox.Text;
+            name = nameTextBox.Text;
+            nickname = nicknameTextBox.Text;
+            height = int.Parse(heightTextBox.Text);
+            weight = int.Parse(weightTextBox.Text);
+            association = associationTextBox.Text;
+            weightClass = classTextBox.Text;
+            locality = localityTextBox.Text; 
+            country = countryTextBox.Text;
+
+            using MySqlConnection conn = DbUtility.Connect();
+            try
+            {
+                // Update table using the variables
+                MySqlCommand cmd = new($"UPDATE Fighters SET Url = '{url}', Name = '{name}', Nickname = '{nickname}', Height = {height}, Weight = {weight}, Association = '{association}', Class = '{weightClass}', Locality = '{locality}', Country = '{country}' WHERE Id = {id}", conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Database Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            MessageBox.Show($"Records for {name} have been modified!", "Success", MessageBoxButtons.OK);
+            Close();
         }
 
         private void fighterUserControl1_Load(object sender, EventArgs e)

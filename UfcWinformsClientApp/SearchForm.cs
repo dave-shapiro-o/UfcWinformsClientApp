@@ -37,6 +37,9 @@ namespace UfcWinformsClientApp
         
         void GetData(string searchText, DataGridView view)
         {
+            // Connects to database, calls SearchSelect to get the query,
+            // Creates a MySqlDataAdapter and a DataTable
+            // Adapter fills the table and sets the form's DataGridView's data source to the table
             using MySqlConnection conn = DbUtility.Connect();
            
             try
@@ -73,9 +76,12 @@ namespace UfcWinformsClientApp
                     return $"SELECT * FROM Fighters WHERE Nickname LIKE '%{searchText}%'";
                 case "Country":
                     return $"SELECT * FROM Fighters WHERE Country LIKE '%{searchText}%'";
+                // Trackbars calibrated for weight in lbs
                 case "Weight":
                     int min = trackBar1.Value * 3;
                     int max = trackBar2.Value * 3;
+                // Only uses trackbars' values if there is no value entered in the textbox
+                // (the textbox is cleared if either of the trackbars is used in their trackbar_Scroll methods below
                     return searchText.Equals("") ? 
                         $"SELECT * FROM Fighters WHERE Weight BETWEEN {min} AND {max}" :
                         $"SELECT * FROM Fighters WHERE Weight = {int.Parse(searchText)}";
@@ -92,6 +98,7 @@ namespace UfcWinformsClientApp
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Resets trackbars to centre, displays them if Weight or Height are selected
             trackBar1.Value = trackBar1.Maximum / 2;
             trackBar2.Value = trackBar2.Maximum / 2;
             switch (comboBox1.SelectedItem)
@@ -124,7 +131,7 @@ namespace UfcWinformsClientApp
             textBox1.Text = "";
             SetMaxTrackBar((string)comboBox1.SelectedItem == "Weight" ? 3 : 1);
         }
-
+        // Calibrates trackbars according to whether Height or Weight is selected
         private void SetMinTrackBar(int scaleFactor)
         {
             minValueLabel.Text = (trackBar1.Value * scaleFactor).ToString();
@@ -154,6 +161,7 @@ namespace UfcWinformsClientApp
             EnterRestrictedZone(Function.Delete);
         }
          
+        // Password check
         private void EnterRestrictedZone(Function function)
         {
             if (!passwordIsAccepted)

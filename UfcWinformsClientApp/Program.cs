@@ -14,6 +14,7 @@ namespace UfcWinformsClientApp
         [STAThread]
         static void Main()
         {
+            // SearchForm is the main form / entry point
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

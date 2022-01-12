@@ -10,7 +10,8 @@ namespace UfcWinformsClientApp
         internal static MySqlConnection Connect()
         {
             var builder = new MySqlConnectionStringBuilder
-
+            // If using these settings, make sure your new schema (database) is named ufc-local
+            // and password = password. Knot exactly fort Nox :)
             {
                 Server = "localhost",
                 Port = 3306,

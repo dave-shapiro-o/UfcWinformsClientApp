@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace UfcWinformsClientApp
 {
+    // I used this User Control yoke to try to have all the textboxes grouped, to reuse them for Add, Edit, Delete
+    // But it made it awkward to access the variables from other classes - more research needed!
     public partial class FighterUserControl : UserControl
     {
         internal static string url, id, name, nickname, height, weight, association, weightClass, locality, country = string.Empty;

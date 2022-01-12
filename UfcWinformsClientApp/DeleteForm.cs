@@ -18,6 +18,7 @@ namespace UfcWinformsClientApp
             searchId = delFighterIdTextBox.Text;
             try
             {
+                // Retrieve fighter data by I.D. and display
                 MySqlCommand cmd = new($"SELECT Url, Id, Name, Nickname, Height, Weight, Association, Class, Locality, Country FROM Fighters "
                                     + $"WHERE Id = {int.Parse(searchId)}", conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -47,6 +48,7 @@ namespace UfcWinformsClientApp
             using MySqlConnection conn = DbUtility.Connect();
             try
             {
+                // Display an "Are you sure?" dialog before executing the delete
                 MySqlCommand cmd = new($"DELETE FROM Fighters WHERE Id = {int.Parse(searchId)}", conn);
                 DialogResult result = MessageBox.Show($"You are about to delete all records for I.D. number {searchId}.\n Continue?", "Beware!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)

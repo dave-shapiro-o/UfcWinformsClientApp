@@ -3,6 +3,13 @@ using System.Windows.Forms;
 
 namespace UfcWinformsClientApp
 {
+    // Here we are at Fort Knox
+    // This validates the password that a user must enter to access Add, Edit, Delete
+    // In SearchForm.cs there is an enum called Function
+    // Button_Click methods for Add, Edit, Delete call a method named EnterRestrictedZone
+    // This checks whether the user has successfully entered their password:
+    // If so, it opens the correct form based on the Function passed in to it
+    // Otherwise it sends them here
     public partial class PasswordForm : Form
     {
         internal readonly SearchForm.Function function;
@@ -27,6 +34,7 @@ namespace UfcWinformsClientApp
 
         private void submitButton_Click(object sender, EventArgs e)
         {
+            // !!!!!!!!PASSWORD HERE!!!!!!!!!!!!!!!!!!!! lol
             string password = "Fight!";
             if (passwordTextBox.Text.Equals(password))
             {
