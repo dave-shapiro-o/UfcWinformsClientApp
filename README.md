@@ -1,1 +1,1 @@
-Prototype C.R.U.D. Winforms app, using remote MySql database on aws ec2 instance running Ubuntu 
+Prototype C.R.U.D. Winforms app, using local MySql database 
