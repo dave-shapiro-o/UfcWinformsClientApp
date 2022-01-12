@@ -15,7 +15,7 @@ namespace UfcWinformsClientApp
         {
 
         }
-
+        // Still not sure about using UserControls...
         private void addFighterButton_Click(object sender, EventArgs e) 
         {
             string url = FighterUserControl.url;
