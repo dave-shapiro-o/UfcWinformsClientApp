@@ -43,9 +43,7 @@ namespace UfcWinformsClientApp
             {
                 MySqlCommand cmd = new();
                 cmd.Connection = conn;
-                cmd.CommandText = selectAllFighters? 
-                    "SELECT * FROM Fighters" :
-                    SearchSelect(searchText);
+                cmd.CommandText = SearchSelect(searchText);
                 
                 MySqlDataAdapter adapter = new();
                 adapter.SelectCommand = cmd;
@@ -63,9 +61,14 @@ namespace UfcWinformsClientApp
 
         private string SearchSelect(string searchText)
         {
-            
+            if (selectAllFighters)
+            {
+                return "SELECT * FROM Fighters";
+            }
             switch ((string)comboBox1.SelectedItem)
             {
+                case "Name":
+                    return $"SELECT * FROM Fighters WHERE Name LIKE '%{searchText}%'";
                 case "Nickname":
                     return $"SELECT * FROM Fighters WHERE Nickname LIKE '%{searchText}%'";
                 case "Country":
@@ -82,9 +85,8 @@ namespace UfcWinformsClientApp
                     return searchText.Equals("") ?
                         $"SELECT * FROM Fighters WHERE Height BETWEEN {min} AND {max}" :
                         $"SELECT * FROM Fighters WHERE Height = {int.Parse(searchText)}";
-                case "Name":
                 default:
-                    return $"SELECT * FROM Fighters WHERE Name LIKE '%{searchText}%'";
+                    return $"SELECT * FROM Fighters WHERE Nickname LIKE '%The Frolicking Unicorn%'";
             }
         }
 
