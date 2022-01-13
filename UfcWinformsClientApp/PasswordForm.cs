@@ -19,19 +19,6 @@ namespace UfcWinformsClientApp
             InitializeComponent();
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-            SearchForm searchForm = new();
-            searchForm.Show();
-            passwordPanel.Visible = false;
-        }
-
-        private void editDatabaseButton_Click(object sender, EventArgs e)
-        {
-            passwordPanel.Visible = true;
-
-        }
-
         private void submitButton_Click(object sender, EventArgs e)
         {
             // !!!!!!!!PASSWORD HERE!!!!!!!!!!!!!!!!!!!! lol
