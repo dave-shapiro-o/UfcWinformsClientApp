@@ -48,7 +48,7 @@ namespace UfcWinformsClientApp
             this.addFighterButton = new System.Windows.Forms.Button();
             this.editFighterButton = new System.Windows.Forms.Button();
             this.deleteFighterButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.websiteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.sliderPanel.SuspendLayout();
@@ -262,18 +262,18 @@ namespace UfcWinformsClientApp
             this.deleteFighterButton.UseVisualStyleBackColor = false;
             this.deleteFighterButton.Click += new System.EventHandler(this.deleteFighterButton_Click);
             // 
-            // button3
+            // websiteButton
             // 
-            this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.Yellow;
-            this.button3.Location = new System.Drawing.Point(452, 603);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(197, 67);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Go To Website";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.websiteButton.BackColor = System.Drawing.Color.Red;
+            this.websiteButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.websiteButton.ForeColor = System.Drawing.Color.Yellow;
+            this.websiteButton.Location = new System.Drawing.Point(452, 603);
+            this.websiteButton.Name = "websiteButton";
+            this.websiteButton.Size = new System.Drawing.Size(197, 67);
+            this.websiteButton.TabIndex = 12;
+            this.websiteButton.Text = "Go To Website";
+            this.websiteButton.UseVisualStyleBackColor = false;
+            this.websiteButton.Click += new System.EventHandler(this.websiteButton_Click);
             // 
             // SearchForm
             // 
@@ -281,7 +281,7 @@ namespace UfcWinformsClientApp
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1773, 732);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.websiteButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.sliderPanel);
             this.Controls.Add(this.dataGridView1);
@@ -324,7 +324,7 @@ namespace UfcWinformsClientApp
         private System.Windows.Forms.Button addFighterButton;
         private System.Windows.Forms.Button editFighterButton;
         private System.Windows.Forms.Button deleteFighterButton;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button websiteButton;
     }
 }
 
