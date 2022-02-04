@@ -34,5 +34,10 @@ namespace UfcWinformsClientApp
             }
             return conn;
         }
+
+        internal static void GetConnectionString()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

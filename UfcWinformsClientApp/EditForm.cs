@@ -1,11 +1,13 @@
 ﻿using MySqlConnector;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace UfcWinformsClientApp
 {
     public partial class EditForm : Form
     {
+   
         string url;
         int id;
         string name;

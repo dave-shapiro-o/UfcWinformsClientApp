@@ -9,6 +9,7 @@ namespace UfcWinformsClientApp
     {
         bool selectAllFighters;
         internal static bool passwordIsAccepted;
+        internal string fighterUrl;
         public SearchForm()
         {
             InitializeComponent();
@@ -123,12 +124,14 @@ namespace UfcWinformsClientApp
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             textBox1.Text = "";
-            SetMinTrackBar((string)comboBox1.SelectedItem == "Weight" ? 3 : 1);
+            int scaleFactor = (string)comboBox1.SelectedItem == "Weight" ? 3 : 1;
+            minValueLabel.Text = (trackBar1.Value * scaleFactor).ToString();
         }
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
             textBox1.Text = "";
-            SetMaxTrackBar((string)comboBox1.SelectedItem == "Weight" ? 3 : 1);
+            int scaleFactor = (string)comboBox1.SelectedItem == "Weight" ? 3 : 1;
+            maxValueLabel.Text = (trackBar2.Value * scaleFactor).ToString();
         }
         // Calibrates trackbars according to whether Height or Weight is selected
         private void SetMinTrackBar(int scaleFactor)
@@ -179,6 +182,28 @@ namespace UfcWinformsClientApp
                 };
                 form.Show();
             }
+        }
+        private void datagridview1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
+                string subUrl = Convert.ToString(selectedRow.Cells["Url"].Value);
+
+                fighterUrl = "http://www.sherdog.com/" + subUrl.Replace(" ", "");
+            }
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
+            string subUrl = Convert.ToString(selectedRow.Cells["Url"].Value);
+
+            fighterUrl = "http://www.sherdog.com/" + subUrl.Replace(" ", "");
+            string goToUrl = $"/c start {fighterUrl.Trim()}";
+            System.Diagnostics.Process.Start("cmd", goToUrl);
+
         }
     }
     
