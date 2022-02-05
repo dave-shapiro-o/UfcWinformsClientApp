@@ -157,7 +157,16 @@ namespace UfcWinformsClientApp
 
         private void addFighterButton_Click(object sender, EventArgs e)
         {
-            EnterRestrictedZone(Function.Add);
+            if (!passwordIsAccepted)
+            {
+                PasswordForm passwordForm = new(Function.Add, string.Empty);
+                passwordForm.Show();
+            }
+            else
+            {
+                Form form = new AddForm();
+                form.Show();
+            }
         }
 
         private void editFighterButton_Click(object sender, EventArgs e)
@@ -173,26 +182,28 @@ namespace UfcWinformsClientApp
         // Password check
         private void EnterRestrictedZone(Function function)
         {
-            int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
-            DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
-            string rowData = string.Empty;
-            for(int i = 0; i < selectedRow.Cells.Count; ++i) { rowData += Convert.ToString(selectedRow.Cells[i].Value) + "*"; }
+            if (dataGridView1.SelectedCells.Count > 0)
+            {
+                int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
+                string rowData = string.Empty;
+                for (int i = 0; i < selectedRow.Cells.Count; ++i) { rowData += Convert.ToString(selectedRow.Cells[i].Value) + "*"; }
 
-            if (!passwordIsAccepted)
-            {
-                PasswordForm passwordForm = new(function, rowData);
-                passwordForm.Show();
-            }
-            else
-            {
-                Form form = function switch
+                if (!passwordIsAccepted)
                 {
-                    Function.Add => new AddForm(),
-                    Function.Edit => new EditForm(rowData),
-                    Function.Delete => new DeleteForm(rowData),
-                    _ => throw new NotImplementedException()
-                };
-                form.Show();
+                    PasswordForm passwordForm = new(function, rowData);
+                    passwordForm.Show();
+                }
+                else
+                {
+                    Form form = function switch
+                    {
+                        Function.Edit => new EditForm(rowData),
+                        Function.Delete => new DeleteForm(rowData),
+                        _ => throw new NotImplementedException()
+                    };
+                    form.Show();
+                }
             }
         }
 
