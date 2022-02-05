@@ -13,9 +13,11 @@ namespace UfcWinformsClientApp
     public partial class PasswordForm : Form
     {
         internal readonly SearchForm.Function function;
-        public PasswordForm(SearchForm.Function func)
+        string rowData;
+        public PasswordForm(SearchForm.Function func, string data)
         {
             function = func;
+            rowData = data;
             InitializeComponent();
         }
 
@@ -26,12 +28,12 @@ namespace UfcWinformsClientApp
             if (passwordTextBox.Text.Equals(password))
             {
                 SearchForm.passwordIsAccepted = true;
-                this.Hide();
+                Hide();
 
                 Form form = function switch
                 {
-                    SearchForm.Function.Edit => new EditForm(),
-                    SearchForm.Function.Delete => new DeleteForm(),
+                    SearchForm.Function.Edit => new EditForm(rowData),
+                    SearchForm.Function.Delete => new DeleteForm(rowData),
                     SearchForm.Function.Add => new AddForm(),
                     _ => throw new NotImplementedException()
                 };
@@ -41,8 +43,7 @@ namespace UfcWinformsClientApp
             else
             {
                 MessageBox.Show("Incorrect Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-            
+            }           
         }
 
     }

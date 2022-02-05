@@ -6,41 +6,20 @@ namespace UfcWinformsClientApp
 {
     public partial class DeleteForm : Form
     {
-        string searchId;
-        public DeleteForm()
+        public DeleteForm(string data)
         {
             InitializeComponent();
+            setFields(data);
         }
-
-        private void findFighterButton_Click(object sender, EventArgs e)
+        private void setFields(string data)
         {
-            using MySqlConnection conn = DbUtility.Connect();
-            searchId = delFighterIdTextBox.Text;
-            try
+            Label[] labels = {delUrlLabel, delIdLabel, delNameLabel, delNicknameLabel, delHeightLabel, 
+                              delWeightLabel, delAssociationLabel, delClassLabel, delLocalityLabel, delCountryLabel};
+            string[] rowValues = data.Split("*");
+            for (int i = 0; i < labels.Length; ++i)
             {
-                // Retrieve fighter data by I.D. and display
-                MySqlCommand cmd = new($"SELECT Url, Id, Name, Nickname, Height, Weight, Association, Class, Locality, Country FROM Fighters "
-                                    + $"WHERE Id = {int.Parse(searchId)}", conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    delUrlLabel.Text = reader.GetString(0);
-                    delIdLabel.Text = reader.GetInt32(1).ToString();
-                    delNameLabel.Text = reader.GetString(2);
-                    delNicknameLabel.Text = reader.GetString(3);
-                    delHeightLabel.Text = reader.GetInt32(4).ToString();
-                    delWeightLabel.Text = reader.GetInt32(5).ToString();
-                    delAssociationLabel.Text = reader.GetString(6);
-                    delClassLabel.Text = reader.GetString(7);
-                    delLocalityLabel.Text = reader.GetString(8);
-                    delCountryLabel.Text = reader.GetString(9);
-                }
+                labels[i].Text = rowValues[i];
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Fighter not found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            delStatsPanel.Visible = true;
         }
 
         private void deleteFighterButton_Click(object sender, EventArgs e)
@@ -49,12 +28,13 @@ namespace UfcWinformsClientApp
             try
             {
                 // Display an "Are you sure?" dialog before executing the delete
-                MySqlCommand cmd = new($"DELETE FROM Fighters WHERE Id = {int.Parse(searchId)}", conn);
-                DialogResult result = MessageBox.Show($"You are about to delete all records for I.D. number {searchId}.\n Continue?", "Beware!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                string id = delIdLabel.Text;
+                MySqlCommand cmd = new($"DELETE FROM Fighters WHERE Id = {id}", conn);
+                DialogResult result = MessageBox.Show($"You are about to delete all records for I.D. number {id}.\n Continue?", "Beware!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)
                 {
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show($"Records for Fighter I.D. {searchId} have been deleted!", "Success", MessageBoxButtons.OK);
+                    MessageBox.Show($"Records for Fighter I.D. {id} have been deleted!", "Success", MessageBoxButtons.OK);
                     Close();
                 }
             }
@@ -62,7 +42,8 @@ namespace UfcWinformsClientApp
             {
                 MessageBox.Show(ex.Message, "Database Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+            SearchForm.sharedInstance.RefreshGrid();
+            Close();
         }
     }
 }

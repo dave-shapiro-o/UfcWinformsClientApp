@@ -7,11 +7,17 @@ namespace UfcWinformsClientApp
 {
     public partial class SearchForm : Form
     {
-        bool selectAllFighters;
+        internal static bool selectAllFighters;
         internal static bool passwordIsAccepted;
         internal string fighterUrl;
+        internal string lastQuery;
+        public static SearchForm sharedInstance;
         public SearchForm()
         {
+            if (sharedInstance == null)
+            {
+                sharedInstance = this;
+            }
             InitializeComponent();
         }
         public enum Function
@@ -21,21 +27,21 @@ namespace UfcWinformsClientApp
             Delete
         };
 
-        private void button1_Click(object sender, EventArgs e)
+        private void searchButton_Click(object sender, EventArgs e)
         {
-            string searchText = textBox1.Text;
+            string searchText = searchTextBox.Text;
             selectAllFighters = false;
-            GetData(searchText, dataGridView1);
+            GetData(searchText);
             
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void searchAllButton_Click(object sender, EventArgs e)
         {
-            string searchText = textBox1.Text;
+            string searchText = searchTextBox.Text;
             selectAllFighters = true;
-            GetData(searchText, dataGridView1);
+            GetData(searchText);
         }
-        
-        void GetData(string searchText, DataGridView view)
+ 
+        void GetData(string searchText)
         {
             // Connects to database, calls SearchSelect to get the query,
             // Creates a MySqlDataAdapter and a DataTable
@@ -53,13 +59,14 @@ namespace UfcWinformsClientApp
                 
                 DataTable table = new();
                 adapter.Fill(table);
-                view.DataSource = table;
+                dataGridView1.DataSource = table;
                 table.AcceptChanges();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            lastQuery = searchText;
         }
 
         private string SearchSelect(string searchText)
@@ -78,16 +85,16 @@ namespace UfcWinformsClientApp
                     return $"SELECT * FROM Fighters WHERE Country LIKE '%{searchText}%'";
                 // Trackbars calibrated for weight in lbs
                 case "Weight":
-                    int min = trackBar1.Value * 3;
-                    int max = trackBar2.Value * 3;
+                    int min = minTrackBar.Value * 3;
+                    int max = maxTrackBar.Value * 3;
                 // Only uses trackbars' values if there is no value entered in the textbox
                 // (the textbox is cleared if either of the trackbars is used in their trackbar_Scroll methods below
                     return searchText.Equals("") ? 
                         $"SELECT * FROM Fighters WHERE Weight BETWEEN {min} AND {max}" :
                         $"SELECT * FROM Fighters WHERE Weight = {int.Parse(searchText)}";
                 case "Height":
-                    min = trackBar1.Value;
-                    max = trackBar2.Value;
+                    min = minTrackBar.Value;
+                    max = maxTrackBar.Value;
                     return searchText.Equals("") ?
                         $"SELECT * FROM Fighters WHERE Height BETWEEN {min} AND {max}" :
                         $"SELECT * FROM Fighters WHERE Height = {int.Parse(searchText)}";
@@ -95,12 +102,12 @@ namespace UfcWinformsClientApp
                     return $"SELECT * FROM Fighters WHERE Nickname LIKE '%The Frolicking Unicorn%'";
             }
         }
-
+       
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Resets trackbars to centre, displays them if Weight or Height are selected
-            trackBar1.Value = trackBar1.Maximum / 2;
-            trackBar2.Value = trackBar2.Maximum / 2;
+            minTrackBar.Value = minTrackBar.Maximum / 2;
+            maxTrackBar.Value = maxTrackBar.Maximum / 2;
             switch (comboBox1.SelectedItem)
             {
                 case "Weight":
@@ -123,24 +130,24 @@ namespace UfcWinformsClientApp
         
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            textBox1.Text = "";
+            searchTextBox.Text = "";
             int scaleFactor = (string)comboBox1.SelectedItem == "Weight" ? 3 : 1;
-            minValueLabel.Text = (trackBar1.Value * scaleFactor).ToString();
+            minValueLabel.Text = (minTrackBar.Value * scaleFactor).ToString();
         }
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
-            textBox1.Text = "";
+            searchTextBox.Text = "";
             int scaleFactor = (string)comboBox1.SelectedItem == "Weight" ? 3 : 1;
-            maxValueLabel.Text = (trackBar2.Value * scaleFactor).ToString();
+            maxValueLabel.Text = (maxTrackBar.Value * scaleFactor).ToString();
         }
         // Calibrates trackbars according to whether Height or Weight is selected
         private void SetMinTrackBar(int scaleFactor)
         {
-            minValueLabel.Text = (trackBar1.Value * scaleFactor).ToString();
+            minValueLabel.Text = (minTrackBar.Value * scaleFactor).ToString();
         }
         private void SetMaxTrackBar(int scaleFactor)
         {
-            maxValueLabel.Text = (trackBar2.Value * scaleFactor).ToString();
+            maxValueLabel.Text = (maxTrackBar.Value * scaleFactor).ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -166,9 +173,14 @@ namespace UfcWinformsClientApp
         // Password check
         private void EnterRestrictedZone(Function function)
         {
+            int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
+            DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
+            string rowData = string.Empty;
+            for(int i = 0; i < selectedRow.Cells.Count; ++i) { rowData += Convert.ToString(selectedRow.Cells[i].Value) + "*"; }
+
             if (!passwordIsAccepted)
             {
-                PasswordForm passwordForm = new(function);
+                PasswordForm passwordForm = new(function, rowData);
                 passwordForm.Show();
             }
             else
@@ -176,12 +188,17 @@ namespace UfcWinformsClientApp
                 Form form = function switch
                 {
                     Function.Add => new AddForm(),
-                    Function.Edit => new EditForm(),
-                    Function.Delete => new DeleteForm(),
+                    Function.Edit => new EditForm(rowData),
+                    Function.Delete => new DeleteForm(rowData),
                     _ => throw new NotImplementedException()
                 };
                 form.Show();
             }
+        }
+
+        public void RefreshGrid()
+        {
+            GetData(lastQuery);
         }
 
         private void websiteButton_Click(object sender, EventArgs e)

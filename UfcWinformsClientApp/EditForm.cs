@@ -6,87 +6,42 @@ using System.Windows.Forms;
 namespace UfcWinformsClientApp
 {
     public partial class EditForm : Form
-    {
-   
-        string url;
-        int id;
-        string name;
-        string nickname;
-        int height;
-        int weight;
-        string association;
-        string weightClass;
-        string locality;
-        string country;
-
-        string searchId;
-
-        public EditForm()
+    { 
+        public EditForm(string data)
         {
             InitializeComponent();
+            setFields(data);
         }
 
-        // There's likely a better way to do all this - data binding?
-        private void findFighterButton_Click(object sender, EventArgs e)
+        private void setFields(string data)
         {
-            using MySqlConnection conn = DbUtility.Connect();
-            searchId = fighterIdTextBox.Text;
-            try
+            TextBox[] textboxes = {urlTextBox, idTextBox, nameTextBox, nicknameTextBox, heightTextBox, 
+                                   weightTextBox, associationTextBox, classTextBox, localityTextBox, countryTextBox};
+            string[] rowValues = data.Split("*");
+            for (int i = 0; i < textboxes.Length; ++i) 
             {
-                // Get fighter data from the table by the I.D. that the user entered on the form
-                MySqlCommand cmd = new($"SELECT Url, Id, Name, Nickname, Height, Weight, Association, Class, Locality, Country FROM Fighters "
-                                    + $"WHERE Id = {int.Parse(searchId)}", conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    // Assign the data to variables
-                    url = reader.GetString(0);
-                    id = reader.GetInt32(1);
-                    name = reader.GetString(2);
-                    nickname = reader.GetString(3);
-                    height = reader.GetInt32(4);
-                    weight = reader.GetInt32(5);
-                    association = reader.GetString(6);
-                    weightClass = reader.GetString(7);
-                    locality = reader.GetString(8);
-                    country = reader.GetString(9);
-                }
+                textboxes[i].Text = rowValues[i];
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Fighter not found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            // Use the variables to set textbox text
-            urlTextBox.Text = url;
-            idTextBox.Text = id.ToString();
-            nameTextBox.Text = name;
-            nicknameTextBox.Text = nickname;
-            heightTextBox.Text = height.ToString();
-            weightTextBox.Text = weight.ToString();
-            associationTextBox.Text = association;
-            classTextBox.Text = weightClass;
-            localityTextBox.Text = locality;
-            countryTextBox.Text = country;
         }
 
         private void saveFighterButton_Click(object sender, EventArgs e)
         {
             // Assign the (possibly edited) text in the textboxes to the variables
-            url = urlTextBox.Text;
-            name = nameTextBox.Text;
-            nickname = nicknameTextBox.Text;
-            height = int.Parse(heightTextBox.Text);
-            weight = int.Parse(weightTextBox.Text);
-            association = associationTextBox.Text;
-            weightClass = classTextBox.Text;
-            locality = localityTextBox.Text; 
-            country = countryTextBox.Text;
+            string url = urlTextBox.Text;
+            string name = nameTextBox.Text;
+            string nickname = nicknameTextBox.Text;
+            int height = int.Parse(heightTextBox.Text);
+            int weight = int.Parse(weightTextBox.Text);
+            string association = associationTextBox.Text;
+            string weightClass = classTextBox.Text;
+            string locality = localityTextBox.Text; 
+            string country = countryTextBox.Text;
 
             using MySqlConnection conn = DbUtility.Connect();
             try
             {
                 // Update table using the variables
-                MySqlCommand cmd = new($"UPDATE Fighters SET Url = '{url}', Name = '{name}', Nickname = '{nickname}', Height = {height}, Weight = {weight}, Association = '{association}', Class = '{weightClass}', Locality = '{locality}', Country = '{country}' WHERE Id = {id}", conn);
+                MySqlCommand cmd = new($"UPDATE Fighters SET Url = '{url}', Name = '{name}', Nickname = '{nickname}', Height = {height}, Weight = {weight}, Association = '{association}', Class = '{weightClass}', Locality = '{locality}', Country = '{country}' WHERE Id = {idTextBox.Text}", conn);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -94,6 +49,7 @@ namespace UfcWinformsClientApp
                 MessageBox.Show(ex.Message, "Database Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             MessageBox.Show($"Records for {name} have been modified!", "Success", MessageBoxButtons.OK);
+            SearchForm.sharedInstance.RefreshGrid();
             Close();
         }
 

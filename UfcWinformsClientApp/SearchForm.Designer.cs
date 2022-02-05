@@ -29,45 +29,45 @@ namespace UfcWinformsClientApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.searchCategoryLabel = new System.Windows.Forms.Label();
+            this.searchQueryLabel = new System.Windows.Forms.Label();
+            this.minTrackBar = new System.Windows.Forms.TrackBar();
             this.minLabel = new System.Windows.Forms.Label();
             this.minValueLabel = new System.Windows.Forms.Label();
             this.sliderPanel = new System.Windows.Forms.Panel();
             this.sliderCategoryLabel = new System.Windows.Forms.Label();
-            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.maxTrackBar = new System.Windows.Forms.TrackBar();
             this.maxValueLabel = new System.Windows.Forms.Label();
             this.maxLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.searchAllButton = new System.Windows.Forms.Button();
             this.addFighterButton = new System.Windows.Forms.Button();
             this.editFighterButton = new System.Windows.Forms.Button();
             this.deleteFighterButton = new System.Windows.Forms.Button();
             this.websiteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minTrackBar)).BeginInit();
             this.sliderPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxTrackBar)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // searchButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button1.Font = new System.Drawing.Font("Impact", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(990, 14);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(350, 150);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Search For Fighters";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.searchButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.searchButton.Font = new System.Drawing.Font("Impact", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.searchButton.ForeColor = System.Drawing.Color.White;
+            this.searchButton.Location = new System.Drawing.Point(990, 14);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(350, 150);
+            this.searchButton.TabIndex = 0;
+            this.searchButton.Text = "Search For Fighters";
+            this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // dataGridView1
             // 
@@ -79,12 +79,12 @@ namespace UfcWinformsClientApp
             this.dataGridView1.Size = new System.Drawing.Size(1728, 385);
             this.dataGridView1.TabIndex = 1;
             // 
-            // textBox1
+            // searchTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(213, 85);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(316, 31);
-            this.textBox1.TabIndex = 3;
+            this.searchTextBox.Location = new System.Drawing.Point(213, 85);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(316, 31);
+            this.searchTextBox.TabIndex = 3;
             // 
             // comboBox1
             // 
@@ -102,33 +102,33 @@ namespace UfcWinformsClientApp
             this.comboBox1.TabIndex = 4;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // label1
+            // searchCategoryLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(63, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 25);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Search By:";
+            this.searchCategoryLabel.AutoSize = true;
+            this.searchCategoryLabel.Location = new System.Drawing.Point(6, 30);
+            this.searchCategoryLabel.Name = "searchCategoryLabel";
+            this.searchCategoryLabel.Size = new System.Drawing.Size(201, 25);
+            this.searchCategoryLabel.TabIndex = 5;
+            this.searchCategoryLabel.Text = "Select a search category";
             // 
-            // label2
+            // searchQueryLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 85);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 25);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Enter your query";
+            this.searchQueryLabel.AutoSize = true;
+            this.searchQueryLabel.Location = new System.Drawing.Point(39, 85);
+            this.searchQueryLabel.Name = "searchQueryLabel";
+            this.searchQueryLabel.Size = new System.Drawing.Size(143, 25);
+            this.searchQueryLabel.TabIndex = 6;
+            this.searchQueryLabel.Text = "Enter your query";
             // 
-            // trackBar1
+            // minTrackBar
             // 
-            this.trackBar1.Location = new System.Drawing.Point(109, 12);
-            this.trackBar1.Maximum = 100;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(156, 69);
-            this.trackBar1.TabIndex = 7;
-            this.trackBar1.Value = 50;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            this.minTrackBar.Location = new System.Drawing.Point(109, 12);
+            this.minTrackBar.Maximum = 100;
+            this.minTrackBar.Name = "minTrackBar";
+            this.minTrackBar.Size = new System.Drawing.Size(156, 69);
+            this.minTrackBar.TabIndex = 7;
+            this.minTrackBar.Value = 50;
+            this.minTrackBar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // minLabel
             // 
@@ -151,12 +151,12 @@ namespace UfcWinformsClientApp
             // sliderPanel
             // 
             this.sliderPanel.Controls.Add(this.sliderCategoryLabel);
-            this.sliderPanel.Controls.Add(this.trackBar2);
+            this.sliderPanel.Controls.Add(this.maxTrackBar);
             this.sliderPanel.Controls.Add(this.maxValueLabel);
             this.sliderPanel.Controls.Add(this.maxLabel);
             this.sliderPanel.Controls.Add(this.minLabel);
             this.sliderPanel.Controls.Add(this.minValueLabel);
-            this.sliderPanel.Controls.Add(this.trackBar1);
+            this.sliderPanel.Controls.Add(this.minTrackBar);
             this.sliderPanel.Location = new System.Drawing.Point(593, 13);
             this.sliderPanel.Name = "sliderPanel";
             this.sliderPanel.Size = new System.Drawing.Size(361, 160);
@@ -171,15 +171,15 @@ namespace UfcWinformsClientApp
             this.sliderCategoryLabel.Size = new System.Drawing.Size(0, 25);
             this.sliderCategoryLabel.TabIndex = 13;
             // 
-            // trackBar2
+            // maxTrackBar
             // 
-            this.trackBar2.Location = new System.Drawing.Point(109, 72);
-            this.trackBar2.Maximum = 100;
-            this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(156, 69);
-            this.trackBar2.TabIndex = 12;
-            this.trackBar2.Value = 50;
-            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
+            this.maxTrackBar.Location = new System.Drawing.Point(109, 72);
+            this.maxTrackBar.Maximum = 100;
+            this.maxTrackBar.Name = "maxTrackBar";
+            this.maxTrackBar.Size = new System.Drawing.Size(156, 69);
+            this.maxTrackBar.TabIndex = 12;
+            this.maxTrackBar.Value = 50;
+            this.maxTrackBar.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             // 
             // maxValueLabel
             // 
@@ -202,26 +202,26 @@ namespace UfcWinformsClientApp
             // panel2
             // 
             this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.searchTextBox);
+            this.panel2.Controls.Add(this.searchQueryLabel);
+            this.panel2.Controls.Add(this.searchCategoryLabel);
             this.panel2.Location = new System.Drawing.Point(23, 13);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(546, 159);
             this.panel2.TabIndex = 11;
             // 
-            // button2
+            // searchAllButton
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.button2.Font = new System.Drawing.Font("Impact", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(1393, 14);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(350, 150);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Show All Fighters";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.searchAllButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.searchAllButton.Font = new System.Drawing.Font("Impact", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.searchAllButton.ForeColor = System.Drawing.Color.White;
+            this.searchAllButton.Location = new System.Drawing.Point(1393, 14);
+            this.searchAllButton.Name = "searchAllButton";
+            this.searchAllButton.Size = new System.Drawing.Size(350, 150);
+            this.searchAllButton.TabIndex = 0;
+            this.searchAllButton.Text = "Show All Fighters";
+            this.searchAllButton.UseVisualStyleBackColor = false;
+            this.searchAllButton.Click += new System.EventHandler(this.searchAllButton_Click);
             // 
             // addFighterButton
             // 
@@ -277,7 +277,7 @@ namespace UfcWinformsClientApp
             // 
             // SearchForm
             // 
-            this.AcceptButton = this.button1;
+            this.AcceptButton = this.searchButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1773, 732);
@@ -285,18 +285,18 @@ namespace UfcWinformsClientApp
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.sliderPanel);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.searchAllButton);
             this.Controls.Add(this.deleteFighterButton);
             this.Controls.Add(this.editFighterButton);
             this.Controls.Add(this.addFighterButton);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.searchButton);
             this.Name = "SearchForm";
             this.Text = "UFC Database App";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minTrackBar)).EndInit();
             this.sliderPanel.ResumeLayout(false);
             this.sliderPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxTrackBar)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -305,22 +305,22 @@ namespace UfcWinformsClientApp
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Label searchCategoryLabel;
+        private System.Windows.Forms.Label searchQueryLabel;
+        private System.Windows.Forms.TrackBar minTrackBar;
         private System.Windows.Forms.Label minLabel;
         private System.Windows.Forms.Label minValueLabel;
         private System.Windows.Forms.Panel sliderPanel;
-        private System.Windows.Forms.TrackBar trackBar2;
+        private System.Windows.Forms.TrackBar maxTrackBar;
         private System.Windows.Forms.Label maxValueLabel;
         private System.Windows.Forms.Label maxLabel;
         private System.Windows.Forms.Label sliderCategoryLabel;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button searchAllButton;
         private System.Windows.Forms.Button addFighterButton;
         private System.Windows.Forms.Button editFighterButton;
         private System.Windows.Forms.Button deleteFighterButton;

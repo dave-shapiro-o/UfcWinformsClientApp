@@ -30,9 +30,6 @@ namespace UfcWinformsClientApp
         private void InitializeComponent()
         {
             this.saveFighterButton = new System.Windows.Forms.Button();
-            this.enterFighterIdLabel = new System.Windows.Forms.Label();
-            this.fighterIdTextBox = new System.Windows.Forms.TextBox();
-            this.findFighterButton = new System.Windows.Forms.Button();
             this.urlLabel = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -67,36 +64,6 @@ namespace UfcWinformsClientApp
             this.saveFighterButton.Text = "Save Fighter";
             this.saveFighterButton.UseVisualStyleBackColor = false;
             this.saveFighterButton.Click += new System.EventHandler(this.saveFighterButton_Click);
-            // 
-            // enterFighterIdLabel
-            // 
-            this.enterFighterIdLabel.AutoSize = true;
-            this.enterFighterIdLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.enterFighterIdLabel.Location = new System.Drawing.Point(510, 38);
-            this.enterFighterIdLabel.Name = "enterFighterIdLabel";
-            this.enterFighterIdLabel.Size = new System.Drawing.Size(241, 38);
-            this.enterFighterIdLabel.TabIndex = 3;
-            this.enterFighterIdLabel.Text = "Enter Fighter I.D.";
-            // 
-            // fighterIdTextBox
-            // 
-            this.fighterIdTextBox.Location = new System.Drawing.Point(510, 113);
-            this.fighterIdTextBox.Name = "fighterIdTextBox";
-            this.fighterIdTextBox.Size = new System.Drawing.Size(241, 31);
-            this.fighterIdTextBox.TabIndex = 4;
-            // 
-            // findFighterButton
-            // 
-            this.findFighterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.findFighterButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.findFighterButton.ForeColor = System.Drawing.Color.White;
-            this.findFighterButton.Location = new System.Drawing.Point(510, 165);
-            this.findFighterButton.Name = "findFighterButton";
-            this.findFighterButton.Size = new System.Drawing.Size(241, 71);
-            this.findFighterButton.TabIndex = 5;
-            this.findFighterButton.Text = "Find Fighter";
-            this.findFighterButton.UseVisualStyleBackColor = false;
-            this.findFighterButton.Click += new System.EventHandler(this.findFighterButton_Click);
             // 
             // urlLabel
             // 
@@ -261,7 +228,6 @@ namespace UfcWinformsClientApp
             // 
             // EditForm
             // 
-            this.AcceptButton = this.findFighterButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(778, 744);
@@ -285,9 +251,6 @@ namespace UfcWinformsClientApp
             this.Controls.Add(this.classLabel);
             this.Controls.Add(this.associationLabel);
             this.Controls.Add(this.urlLabel);
-            this.Controls.Add(this.findFighterButton);
-            this.Controls.Add(this.fighterIdTextBox);
-            this.Controls.Add(this.enterFighterIdLabel);
             this.Controls.Add(this.saveFighterButton);
             this.Name = "EditForm";
             this.Text = "Edit Database";
@@ -298,9 +261,6 @@ namespace UfcWinformsClientApp
 
         #endregion
         private System.Windows.Forms.Button saveFighterButton;
-        private System.Windows.Forms.Label enterFighterIdLabel;
-        private System.Windows.Forms.TextBox fighterIdTextBox;
-        private System.Windows.Forms.Button findFighterButton;
         private System.Windows.Forms.Label urlLabel;
         private System.Windows.Forms.Label idLabel;
         private System.Windows.Forms.Label nameLabel;

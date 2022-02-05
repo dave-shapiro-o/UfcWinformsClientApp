@@ -41,6 +41,7 @@ namespace UfcWinformsClientApp
                 MessageBox.Show(ex.Message, "Database Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             MessageBox.Show("Fighter added to database!", "Success", MessageBoxButtons.OK);
+            SearchForm.sharedInstance.RefreshGrid();
             Close();
         }
     }

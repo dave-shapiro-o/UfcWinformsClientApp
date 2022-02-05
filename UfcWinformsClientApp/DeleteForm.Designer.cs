@@ -30,9 +30,6 @@ namespace UfcWinformsClientApp
         private void InitializeComponent()
         {
             this.deleteFighterButton = new System.Windows.Forms.Button();
-            this.findFighterButton = new System.Windows.Forms.Button();
-            this.delFighterIdTextBox = new System.Windows.Forms.TextBox();
-            this.enterFighterIdLabel = new System.Windows.Forms.Label();
             this.weightLabel = new System.Windows.Forms.Label();
             this.heightLabel = new System.Windows.Forms.Label();
             this.nicknameLabel = new System.Windows.Forms.Label();
@@ -69,36 +66,6 @@ namespace UfcWinformsClientApp
             this.deleteFighterButton.Text = "Delete Fighter";
             this.deleteFighterButton.UseVisualStyleBackColor = false;
             this.deleteFighterButton.Click += new System.EventHandler(this.deleteFighterButton_Click);
-            // 
-            // findFighterButton
-            // 
-            this.findFighterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.findFighterButton.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.findFighterButton.ForeColor = System.Drawing.Color.White;
-            this.findFighterButton.Location = new System.Drawing.Point(497, 165);
-            this.findFighterButton.Name = "findFighterButton";
-            this.findFighterButton.Size = new System.Drawing.Size(241, 71);
-            this.findFighterButton.TabIndex = 8;
-            this.findFighterButton.Text = "Find Fighter";
-            this.findFighterButton.UseVisualStyleBackColor = false;
-            this.findFighterButton.Click += new System.EventHandler(this.findFighterButton_Click);
-            // 
-            // delFighterIdTextBox
-            // 
-            this.delFighterIdTextBox.Location = new System.Drawing.Point(497, 113);
-            this.delFighterIdTextBox.Name = "delFighterIdTextBox";
-            this.delFighterIdTextBox.Size = new System.Drawing.Size(241, 31);
-            this.delFighterIdTextBox.TabIndex = 7;
-            // 
-            // enterFighterIdLabel
-            // 
-            this.enterFighterIdLabel.AutoSize = true;
-            this.enterFighterIdLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.enterFighterIdLabel.Location = new System.Drawing.Point(497, 38);
-            this.enterFighterIdLabel.Name = "enterFighterIdLabel";
-            this.enterFighterIdLabel.Size = new System.Drawing.Size(241, 38);
-            this.enterFighterIdLabel.TabIndex = 6;
-            this.enterFighterIdLabel.Text = "Enter Fighter I.D.";
             // 
             // weightLabel
             // 
@@ -296,11 +263,9 @@ namespace UfcWinformsClientApp
             this.delStatsPanel.Name = "delStatsPanel";
             this.delStatsPanel.Size = new System.Drawing.Size(324, 697);
             this.delStatsPanel.TabIndex = 20;
-            this.delStatsPanel.Visible = false;
             // 
             // DeleteForm
             // 
-            this.AcceptButton = this.findFighterButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(778, 744);
@@ -315,9 +280,6 @@ namespace UfcWinformsClientApp
             this.Controls.Add(this.classLabel);
             this.Controls.Add(this.associationLabel);
             this.Controls.Add(this.urlLabel);
-            this.Controls.Add(this.findFighterButton);
-            this.Controls.Add(this.delFighterIdTextBox);
-            this.Controls.Add(this.enterFighterIdLabel);
             this.Controls.Add(this.deleteFighterButton);
             this.Name = "DeleteForm";
             this.Text = "DeleteForm";
@@ -331,9 +293,6 @@ namespace UfcWinformsClientApp
         #endregion
 
         private System.Windows.Forms.Button deleteFighterButton;
-        private System.Windows.Forms.Button findFighterButton;
-        private System.Windows.Forms.TextBox delFighterIdTextBox;
-        private System.Windows.Forms.Label enterFighterIdLabel;
         private System.Windows.Forms.Label weightLabel;
         private System.Windows.Forms.Label heightLabel;
         private System.Windows.Forms.Label nicknameLabel;
