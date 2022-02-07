@@ -39,6 +39,7 @@ namespace UfcWinformsClientApp
                 };
 
                 form.Show();
+                Close();
             }
             else
             {

@@ -19,6 +19,7 @@ namespace UfcWinformsClientApp
                 sharedInstance = this;
             }
             InitializeComponent();
+            comboBox1.SelectedIndex = 0;
         }
         public enum Function
         {
@@ -46,8 +47,7 @@ namespace UfcWinformsClientApp
             // Connects to database, calls SearchSelect to get the query,
             // Creates a MySqlDataAdapter and a DataTable
             // Adapter fills the table and sets the form's DataGridView's data source to the table
-            using MySqlConnection conn = DbUtility.Connect();
-           
+            using MySqlConnection conn = DbUtility.Connect(); 
             try
             {
                 MySqlCommand cmd = new();
@@ -184,10 +184,10 @@ namespace UfcWinformsClientApp
         {
             if (dataGridView1.SelectedCells.Count > 0)
             {
-                int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
+                int index = dataGridView1.SelectedCells[0].RowIndex;
+                DataGridViewRow row = dataGridView1.Rows[index];
                 string rowData = string.Empty;
-                for (int i = 0; i < selectedRow.Cells.Count; ++i) { rowData += Convert.ToString(selectedRow.Cells[i].Value) + "*"; }
+                for (int i = 0; i < row.Cells.Count; ++i) { rowData += Convert.ToString(row.Cells[i].Value) + "*"; }
 
                 if (!passwordIsAccepted)
                 {
@@ -216,9 +216,9 @@ namespace UfcWinformsClientApp
         {
             if (dataGridView1.SelectedCells.Count > 0)
             {
-                int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
-                string subUrl = Convert.ToString(selectedRow.Cells["Url"].Value);
+                int index = dataGridView1.SelectedCells[0].RowIndex;
+                DataGridViewRow row = dataGridView1.Rows[index];
+                string subUrl = Convert.ToString(row.Cells["Url"].Value);
 
                 fighterUrl = "http://www.sherdog.com/" + subUrl.Replace(" ", "");
                 string goToUrl = $"/c start {fighterUrl.Trim()}";
