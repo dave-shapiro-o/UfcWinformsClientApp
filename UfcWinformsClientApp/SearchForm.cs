@@ -33,7 +33,10 @@ namespace UfcWinformsClientApp
             string searchText = searchTextBox.Text;
             selectAllFighters = false;
             GetData(searchText);
-            
+            if (dataGridView1.Rows.Count == 1)
+            {
+                MessageBox.Show("No results found", "Please try another search", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void searchAllButton_Click(object sender, EventArgs e)
         {
