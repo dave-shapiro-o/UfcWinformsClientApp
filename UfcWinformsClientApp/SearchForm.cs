@@ -105,6 +105,14 @@ namespace UfcWinformsClientApp
        
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if ((string)comboBox1.SelectedItem == "Country") 
+            {
+                searchTextBox.AutoCompleteMode = AutoCompleteMode.Suggest;
+            }
+            else
+            {
+                searchTextBox.AutoCompleteMode = AutoCompleteMode.None;
+            }
             // Resets trackbars to centre, displays them if Weight or Height are selected
             minTrackBar.Value = minTrackBar.Maximum / 2;
             maxTrackBar.Value = maxTrackBar.Maximum / 2;
