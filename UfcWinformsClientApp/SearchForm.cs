@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using MySqlConnector;
 
 namespace UfcWinformsClientApp
 {
@@ -38,7 +37,7 @@ namespace UfcWinformsClientApp
             GetData(searchText);
             if (dataGridView1.Rows.Count == 1)
             {
-                MessageBox.Show("No results found", "Please try another search", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageUtility.NoResults();
             }
         }
         private void searchAllButton_Click(object sender, EventArgs e)

@@ -25,5 +25,10 @@ namespace UfcWinformsClientApp
         {
             MessageBox.Show(ex.Message, "Database error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        internal static void NoResults()
+        {
+            MessageBox.Show("No results found", "Please try another search", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }
