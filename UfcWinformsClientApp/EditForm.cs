@@ -1,6 +1,4 @@
-﻿using MySqlConnector;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Windows.Forms;
 
 namespace UfcWinformsClientApp
@@ -37,18 +35,11 @@ namespace UfcWinformsClientApp
             string locality = localityTextBox.Text; 
             string country = countryTextBox.Text;
 
-            using MySqlConnection conn = DbUtility.Connect();
-            try
-            {
-                // Update table using the variables
-                MySqlCommand cmd = new($"UPDATE Fighters SET Url = '{url}', Name = '{name}', Nickname = '{nickname}', Height = {height}, Weight = {weight}, Association = '{association}', Class = '{weightClass}', Locality = '{locality}', Country = '{country}' WHERE Id = {idTextBox.Text}", conn);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Database Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            MessageBox.Show($"Records for {name} have been modified!", "Success", MessageBoxButtons.OK);
+            string command = $"UPDATE Fighters SET Url = '{url}', Name = '{name}', Nickname = '{nickname}', " 
+                + $"Height = {height}, Weight = {weight}, Association = '{association}', Class = '{weightClass}', " 
+                + $"Locality = '{locality}', Country = '{country}' WHERE Id = {idTextBox.Text}";
+            
+            DbUtility.ExecuteQuery(command, name, "edited");
             SearchForm.sharedInstance.RefreshGrid();
             Close();
         }

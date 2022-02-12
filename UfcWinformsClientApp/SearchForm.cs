@@ -11,6 +11,10 @@ namespace UfcWinformsClientApp
         internal static bool passwordIsAccepted;
         internal string fighterUrl;
         internal string lastQuery;
+        internal AutoCompleteStringCollection countries;
+        internal AutoCompleteStringCollection names;
+        internal AutoCompleteStringCollection nicknames;
+
         public static SearchForm sharedInstance;
         public SearchForm()
         {
@@ -19,7 +23,6 @@ namespace UfcWinformsClientApp
                 sharedInstance = this;
             }
             InitializeComponent();
-            comboBox1.SelectedIndex = 0;
         }
         public enum Function
         {
@@ -47,28 +50,10 @@ namespace UfcWinformsClientApp
  
         void GetData(string searchText)
         {
-            // Connects to database, calls SearchSelect to get the query,
-            // Creates a MySqlDataAdapter and a DataTable
-            // Adapter fills the table and sets the form's DataGridView's data source to the table
-            using MySqlConnection conn = DbUtility.Connect(); 
-            try
-            {
-                MySqlCommand cmd = new();
-                cmd.Connection = conn;
-                cmd.CommandText = SearchSelect(searchText);
-                
-                MySqlDataAdapter adapter = new();
-                adapter.SelectCommand = cmd;
-                
-                DataTable table = new();
-                adapter.Fill(table);
-                dataGridView1.DataSource = table;
-                table.AcceptChanges();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            string query = SearchSelect(searchText);
+            DataTable table = DbUtility.Fetch(query);
+            dataGridView1.DataSource = table;
+            table.AcceptChanges();
             lastQuery = searchText;
         }
 
@@ -108,14 +93,16 @@ namespace UfcWinformsClientApp
        
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ((string)comboBox1.SelectedItem == "Country") 
+            //searchTextBox.AutoCompleteMode = AutoCompleteMode.Suggest;
+
+            searchTextBox.AutoCompleteCustomSource = ((string)comboBox1.SelectedItem) switch
             {
-                searchTextBox.AutoCompleteMode = AutoCompleteMode.Suggest;
-            }
-            else
-            {
-                searchTextBox.AutoCompleteMode = AutoCompleteMode.None;
-            }
+                "Name" => names,
+                "Nickname" => nicknames,
+                "Country" => countries,
+                _ => new AutoCompleteStringCollection()
+            };
+            
             // Resets trackbars to centre, displays them if Weight or Height are selected
             minTrackBar.Value = minTrackBar.Maximum / 2;
             maxTrackBar.Value = maxTrackBar.Maximum / 2;
@@ -159,11 +146,6 @@ namespace UfcWinformsClientApp
         private void SetMaxTrackBar(int scaleFactor)
         {
             maxValueLabel.Text = (maxTrackBar.Value * scaleFactor).ToString();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void addFighterButton_Click(object sender, EventArgs e)
@@ -235,6 +217,22 @@ namespace UfcWinformsClientApp
                 string goToUrl = $"/c start {fighterUrl.Trim()}";
                 System.Diagnostics.Process.Start("cmd", goToUrl);
             }
+        }
+
+        private void SearchForm_Load(object sender, EventArgs e)
+        {
+            countries = new();
+            names = new();
+            nicknames = new();
+
+            DataTable allFightersTable = DbUtility.Fetch("SELECT * FROM Fighters;");
+            foreach(DataRow row in allFightersTable.Rows)
+            {
+                names.Add(Convert.ToString(row["Name"]));
+                nicknames.Add(Convert.ToString(row["Nickname"]));
+                countries.Add(Convert.ToString(row["Country"]));
+            }
+
         }
     }
     

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Windows.Forms;
 using MySqlConnector;
 
 namespace UfcWinformsClientApp
@@ -30,14 +29,48 @@ namespace UfcWinformsClientApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageUtility.DatabaseError(ex);
             }
             return conn;
         }
-
-        internal static void GetConnectionString()
+        internal static void ExecuteQuery(string command, string name, string function)
         {
-            throw new NotImplementedException();
+            using MySqlConnection connection = Connect();
+            try
+            { 
+                MySqlCommand cmd = new(command, connection);
+                cmd.ExecuteNonQuery();
+                MessageUtility.Success(name, function);
+            }
+            catch (Exception)
+            {
+                MessageUtility.Failure(name, function);
+            }
+        }
+
+        internal static DataTable Fetch(string query)
+        {
+            // Connects to database, creates a MySqlDataAdapter and a DataTable
+            // Adapter fills the table and returns it to SearchForm.cs
+            using MySqlConnection conn = Connect();
+            try
+            {
+                MySqlCommand cmd = new();
+                cmd.Connection = conn;
+                cmd.CommandText = query;
+
+                MySqlDataAdapter adapter = new();
+                adapter.SelectCommand = cmd;
+
+                DataTable table = new();
+                adapter.Fill(table);
+                return table;
+            }
+            catch (Exception ex)
+            {
+                MessageUtility.DatabaseError(ex);
+                return new DataTable();
+            }
         }
     }
 }

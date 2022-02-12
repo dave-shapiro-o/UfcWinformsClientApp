@@ -1,5 +1,4 @@
-﻿using MySqlConnector;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace UfcWinformsClientApp
@@ -11,11 +10,6 @@ namespace UfcWinformsClientApp
             InitializeComponent();
         }
 
-        private void fighterUserControl1_Load(object sender, EventArgs e)
-        {
-
-        }
-        // Still not sure about using UserControls...
         private void addFighterButton_Click(object sender, EventArgs e) 
         {
             string url = FighterUserControl.url;
@@ -29,18 +23,10 @@ namespace UfcWinformsClientApp
             string locality = FighterUserControl.locality;
             string country = FighterUserControl.country;
 
-            using MySqlConnection conn = DbUtility.Connect();
-            try
-            {
-                MySqlCommand cmd = new($"INSERT INTO Fighters (Url, Id, Name, Nickname, Height, Weight, Association, Class, Locality, Country)"
-                                 + $"VALUES('{url}', {id}, '{name}', '{nickname}', {height}, {weight}, '{association}', '{weightClass}', '{locality}', '{country}')", conn);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Database Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            MessageBox.Show("Fighter added to database!", "Success", MessageBoxButtons.OK);
+            string command = $"INSERT INTO Fighters (Url, Id, Name, Nickname, Height, Weight, Association, Class, Locality, Country)"
+                                 + $"VALUES('{url}', {id}, '{name}', '{nickname}', {height}, {weight}, '{association}', '{weightClass}', '{locality}', '{country}')";
+            
+            DbUtility.ExecuteQuery(command, name, "added");            
             SearchForm.sharedInstance.RefreshGrid();
             Close();
         }

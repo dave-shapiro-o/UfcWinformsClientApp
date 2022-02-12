@@ -148,6 +148,7 @@ namespace UfcWinformsClientApp
             "Ecuador",
             "Egypt",
             "El Salvador",
+            "England",
             "Equatorial Guinea",
             "Eritrea",
             "Estonia",
@@ -245,6 +246,7 @@ namespace UfcWinformsClientApp
             "North German Confederation*",
             "North German Union*",
             "North Macedonia",
+            "Northern Ireland",
             "Norway",
             "O",
             "Oldenburg*",
@@ -279,7 +281,8 @@ namespace UfcWinformsClientApp
             "San Marino",
             "Sao Tome and Principe",
             "Saudi Arabia",
-            "Schaumburg-Lippe*",
+            "Schaumburg-Lippe",
+            "Scotland",
             "Senegal",
             "Serbia",
             "Seychelles",
@@ -301,7 +304,6 @@ namespace UfcWinformsClientApp
             "T",
             "Tajikistan",
             "Tanzania",
-            "Texas*",
             "Thailand",
             "Timor-Leste",
             "Togo",
@@ -311,13 +313,13 @@ namespace UfcWinformsClientApp
             "Turkey",
             "Turkmenistan",
             "Tuvalu",
-            "Two Sicilies*",
+            "Two Sicilies",
             "U",
             "Uganda",
             "Ukraine",
-            "Union of Soviet Socialist Republics*",
             "United Arab Emirates, The",
             "United Kingdom, The",
+            "United States of America, The",
             "Uruguay",
             "Uzbekistan",
             "V",
@@ -325,7 +327,7 @@ namespace UfcWinformsClientApp
             "Venezuela",
             "Vietnam",
             "W",
-            "Württemberg*",
+            "Wales",
             "Y",
             "Yemen",
             "Z",
@@ -544,6 +546,7 @@ namespace UfcWinformsClientApp
             this.Controls.Add(this.searchButton);
             this.Name = "SearchForm";
             this.Text = "UFC Database App";
+            this.Load += new System.EventHandler(this.SearchForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minTrackBar)).EndInit();
             this.sliderPanel.ResumeLayout(false);

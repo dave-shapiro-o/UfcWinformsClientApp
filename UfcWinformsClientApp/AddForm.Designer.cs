@@ -39,7 +39,7 @@ namespace UfcWinformsClientApp
             this.fighterUserControl1.Name = "fighterUserControl1";
             this.fighterUserControl1.Size = new System.Drawing.Size(393, 725);
             this.fighterUserControl1.TabIndex = 0;
-            this.fighterUserControl1.Load += new System.EventHandler(this.fighterUserControl1_Load);
+            //this.fighterUserControl1.Load += new System.EventHandler(this.fighterUserControl1_Load);
             // 
             // addFighterButton
             // 
