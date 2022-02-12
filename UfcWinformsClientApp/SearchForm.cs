@@ -6,13 +6,13 @@ namespace UfcWinformsClientApp
 {
     public partial class SearchForm : Form
     {
-        internal static bool selectAllFighters;
+        private static bool selectAllFighters;
         internal static bool passwordIsAccepted;
-        internal string fighterUrl;
-        internal string lastQuery;
-        internal AutoCompleteStringCollection countries;
-        internal AutoCompleteStringCollection names;
-        internal AutoCompleteStringCollection nicknames;
+        private string fighterUrl;
+        private string lastQuery;
+        private AutoCompleteStringCollection countries;
+        private AutoCompleteStringCollection names;
+        private AutoCompleteStringCollection nicknames;
 
         public static SearchForm sharedInstance;
         public SearchForm()
@@ -47,7 +47,7 @@ namespace UfcWinformsClientApp
             GetData(searchText);
         }
  
-        void GetData(string searchText)
+        private void GetData(string searchText)
         {
             string query = SearchSelect(searchText);
             DataTable table = DbUtility.Fetch(query);
@@ -92,19 +92,15 @@ namespace UfcWinformsClientApp
        
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //searchTextBox.AutoCompleteMode = AutoCompleteMode.Suggest;
-
-            searchTextBox.AutoCompleteCustomSource = ((string)comboBox1.SelectedItem) switch
+            searchTextBox.AutoCompleteCustomSource = (string)comboBox1.SelectedItem switch
             {
                 "Name" => names,
                 "Nickname" => nicknames,
                 "Country" => countries,
                 _ => new AutoCompleteStringCollection()
-            };
+            };          
             
             // Resets trackbars to centre, displays them if Weight or Height are selected
-            minTrackBar.Value = minTrackBar.Maximum / 2;
-            maxTrackBar.Value = maxTrackBar.Maximum / 2;
             switch (comboBox1.SelectedItem)
             {
                 case "Weight":
@@ -140,10 +136,12 @@ namespace UfcWinformsClientApp
         // Calibrates trackbars according to whether Height or Weight is selected
         private void SetMinTrackBar(int scaleFactor)
         {
+            minTrackBar.Value = minTrackBar.Maximum / 2;
             minValueLabel.Text = (minTrackBar.Value * scaleFactor).ToString();
         }
         private void SetMaxTrackBar(int scaleFactor)
         {
+            maxTrackBar.Value = maxTrackBar.Maximum / 2;
             maxValueLabel.Text = (maxTrackBar.Value * scaleFactor).ToString();
         }
 
@@ -231,8 +229,6 @@ namespace UfcWinformsClientApp
                 nicknames.Add(Convert.ToString(row["Nickname"]));
                 countries.Add(Convert.ToString(row["Country"]));
             }
-
         }
-    }
-    
+    }   
 }

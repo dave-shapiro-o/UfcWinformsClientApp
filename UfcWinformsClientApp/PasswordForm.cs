@@ -12,8 +12,8 @@ namespace UfcWinformsClientApp
     // Otherwise it sends them here
     public partial class PasswordForm : Form
     {
-        internal readonly SearchForm.Function function;
-        string rowData;
+        private readonly SearchForm.Function function;
+        private readonly string rowData;
         public PasswordForm(SearchForm.Function func, string data)
         {
             function = func;

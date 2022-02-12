@@ -43,10 +43,5 @@ namespace UfcWinformsClientApp
             SearchForm.sharedInstance.RefreshGrid();
             Close();
         }
-
-        private void fighterUserControl1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
