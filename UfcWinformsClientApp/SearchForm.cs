@@ -96,6 +96,7 @@ namespace UfcWinformsClientApp
        //using a Lambdas
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            searchTextBox.Text = "";
             searchTextBox.AutoCompleteCustomSource = (string)comboBox1.SelectedItem switch
             {
                 "Name" => names,
