@@ -6,6 +6,7 @@ namespace UfcWinformsClientApp
 {
     public partial class SearchForm : Form
     {
+        private const string showAllFighters = "SELECT * FROM Fighters ORDER BY Id DESC";
         private static bool selectAllFighters;
         internal static bool passwordIsAccepted;
         private string fighterUrl;
@@ -60,7 +61,7 @@ namespace UfcWinformsClientApp
         {
             if (selectAllFighters)
             {
-                return "SELECT * FROM Fighters";
+                return showAllFighters;
             }
             switch ((string)comboBox1.SelectedItem)
             {
@@ -89,7 +90,7 @@ namespace UfcWinformsClientApp
                     return $"SELECT * FROM Fighters WHERE Nickname LIKE '%The Frolicking Unicorn%'";
             }
         }
-       
+       //using a Lambdas
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             searchTextBox.AutoCompleteCustomSource = (string)comboBox1.SelectedItem switch
@@ -229,6 +230,46 @@ namespace UfcWinformsClientApp
                 nicknames.Add(Convert.ToString(row["Nickname"]));
                 countries.Add(Convert.ToString(row["Country"]));
             }
+        }
+
+        private void maxValueLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void minValueLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void minLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maxLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchQueryLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }   
 }
