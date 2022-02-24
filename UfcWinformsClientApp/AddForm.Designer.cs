@@ -35,20 +35,21 @@ namespace UfcWinformsClientApp
             // 
             // fighterUserControl1
             // 
-            this.fighterUserControl1.Location = new System.Drawing.Point(21, 7);
+            this.fighterUserControl1.Location = new System.Drawing.Point(15, 4);
+            this.fighterUserControl1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.fighterUserControl1.Name = "fighterUserControl1";
-            this.fighterUserControl1.Size = new System.Drawing.Size(393, 725);
+            this.fighterUserControl1.Size = new System.Drawing.Size(275, 435);
             this.fighterUserControl1.TabIndex = 0;
-            //this.fighterUserControl1.Load += new System.EventHandler(this.fighterUserControl1_Load);
             // 
             // addFighterButton
             // 
-            this.addFighterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.addFighterButton.BackColor = System.Drawing.Color.Fuchsia;
             this.addFighterButton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.addFighterButton.ForeColor = System.Drawing.Color.White;
-            this.addFighterButton.Location = new System.Drawing.Point(451, 139);
+            this.addFighterButton.ForeColor = System.Drawing.Color.Purple;
+            this.addFighterButton.Location = new System.Drawing.Point(316, 83);
+            this.addFighterButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.addFighterButton.Name = "addFighterButton";
-            this.addFighterButton.Size = new System.Drawing.Size(278, 158);
+            this.addFighterButton.Size = new System.Drawing.Size(195, 95);
             this.addFighterButton.TabIndex = 1;
             this.addFighterButton.Text = "Add Fighter";
             this.addFighterButton.UseVisualStyleBackColor = false;
@@ -56,11 +57,12 @@ namespace UfcWinformsClientApp
             // 
             // AddForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(778, 744);
+            this.ClientSize = new System.Drawing.Size(545, 446);
             this.Controls.Add(this.addFighterButton);
             this.Controls.Add(this.fighterUserControl1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AddForm";
             this.Text = "Add Fighter To Database";
             this.ResumeLayout(false);
