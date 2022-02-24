@@ -46,6 +46,7 @@ namespace UfcWinformsClientApp
             string searchText = searchTextBox.Text;
             selectAllFighters = true;
             GetData(searchText);
+            searchTextBox.Text = "";
         }
  
         private void GetData(string searchText)
@@ -54,6 +55,8 @@ namespace UfcWinformsClientApp
             DataTable table = DbUtility.Fetch(query);
             dataGridView1.DataSource = table;
             table.AcceptChanges();
+            countLabel.Text = $"{table.Rows.Count} Records Found";
+            countLabel.Visible = true;
             lastQuery = searchText;
         }
 

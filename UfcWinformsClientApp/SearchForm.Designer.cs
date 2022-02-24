@@ -51,6 +51,7 @@ namespace UfcWinformsClientApp
             this.deleteFighterButton = new System.Windows.Forms.Button();
             this.websiteButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.countLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minTrackBar)).BeginInit();
             this.sliderPanel.SuspendLayout();
@@ -611,6 +612,18 @@ namespace UfcWinformsClientApp
             this.toolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.toolTip1.IsBalloon = true;
             // 
+            // countLabel
+            // 
+            this.countLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.countLabel.AutoSize = true;
+            this.countLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.countLabel.Location = new System.Drawing.Point(284, 369);
+            this.countLabel.Name = "countLabel";
+            this.countLabel.Size = new System.Drawing.Size(146, 25);
+            this.countLabel.TabIndex = 13;
+            this.countLabel.Text = "Records Found";
+            this.countLabel.Visible = false;
+            // 
             // SearchForm
             // 
             this.AcceptButton = this.searchButton;
@@ -618,6 +631,7 @@ namespace UfcWinformsClientApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(254)))));
             this.ClientSize = new System.Drawing.Size(1300, 439);
+            this.Controls.Add(this.countLabel);
             this.Controls.Add(this.websiteButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.sliderPanel);
@@ -640,6 +654,7 @@ namespace UfcWinformsClientApp
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -666,6 +681,7 @@ namespace UfcWinformsClientApp
         private System.Windows.Forms.Button deleteFighterButton;
         private System.Windows.Forms.Button websiteButton;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label countLabel;
     }
 }
 
