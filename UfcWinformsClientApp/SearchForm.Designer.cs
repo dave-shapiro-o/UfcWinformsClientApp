@@ -65,12 +65,12 @@ namespace UfcWinformsClientApp
             this.searchButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.searchButton.Font = new System.Drawing.Font("Juice ITC", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.searchButton.ForeColor = System.Drawing.Color.Purple;
-            this.searchButton.Location = new System.Drawing.Point(682, 8);
+            this.searchButton.Location = new System.Drawing.Point(783, 11);
             this.searchButton.Margin = new System.Windows.Forms.Padding(2);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(250, 110);
+            this.searchButton.Size = new System.Drawing.Size(245, 110);
             this.searchButton.TabIndex = 0;
             this.searchButton.Text = "Search For Fighters";
             this.searchButton.UseVisualStyleBackColor = false;
@@ -81,19 +81,19 @@ namespace UfcWinformsClientApp
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(250)))), ((int)(((byte)(255)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.dataGridView1.Location = new System.Drawing.Point(16, 122);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 145);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(1210, 151);
+            this.dataGridView1.Size = new System.Drawing.Size(1273, 151);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // searchTextBox
             // 
@@ -351,23 +351,22 @@ namespace UfcWinformsClientApp
             "Zimbabwe"});
             this.searchTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.searchTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.searchTextBox.Font = new System.Drawing.Font("Juice ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.searchTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.searchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.searchTextBox.ImeMode = System.Windows.Forms.ImeMode.Katakana;
-            this.searchTextBox.Location = new System.Drawing.Point(149, 51);
+            this.searchTextBox.Location = new System.Drawing.Point(240, 61);
             this.searchTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(222, 27);
+            this.searchTextBox.Size = new System.Drawing.Size(222, 26);
             this.searchTextBox.TabIndex = 3;
             this.toolTip1.SetToolTip(this.searchTextBox, "If you know the exact measurement enter it here \r\nOtherwise use the sliders to th" +
         "e right");
-            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // comboBox1
             // 
             this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Juice ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
@@ -376,41 +375,40 @@ namespace UfcWinformsClientApp
             "Height",
             "Weight",
             "Country"});
-            this.comboBox1.Location = new System.Drawing.Point(149, 18);
+            this.comboBox1.Location = new System.Drawing.Point(240, 15);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(222, 26);
+            this.comboBox1.Size = new System.Drawing.Size(222, 28);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // searchCategoryLabel
             // 
             this.searchCategoryLabel.AutoSize = true;
-            this.searchCategoryLabel.Font = new System.Drawing.Font("Juice ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.searchCategoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.searchCategoryLabel.Location = new System.Drawing.Point(4, 18);
             this.searchCategoryLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.searchCategoryLabel.Name = "searchCategoryLabel";
-            this.searchCategoryLabel.Size = new System.Drawing.Size(145, 18);
+            this.searchCategoryLabel.Size = new System.Drawing.Size(208, 20);
             this.searchCategoryLabel.TabIndex = 5;
             this.searchCategoryLabel.Text = "Select a search category";
             // 
             // searchQueryLabel
             // 
             this.searchQueryLabel.AutoSize = true;
-            this.searchQueryLabel.Font = new System.Drawing.Font("Juice ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.searchQueryLabel.Location = new System.Drawing.Point(27, 51);
+            this.searchQueryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.searchQueryLabel.Location = new System.Drawing.Point(27, 61);
             this.searchQueryLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.searchQueryLabel.Name = "searchQueryLabel";
-            this.searchQueryLabel.Size = new System.Drawing.Size(101, 18);
+            this.searchQueryLabel.Size = new System.Drawing.Size(141, 20);
             this.searchQueryLabel.TabIndex = 6;
             this.searchQueryLabel.Text = "Enter your query";
-            this.searchQueryLabel.Click += new System.EventHandler(this.searchQueryLabel_Click);
             // 
             // minTrackBar
             // 
             this.minTrackBar.AccessibleRole = System.Windows.Forms.AccessibleRole.Sound;
             this.minTrackBar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minTrackBar.Location = new System.Drawing.Point(76, 7);
+            this.minTrackBar.Location = new System.Drawing.Point(94, 2);
             this.minTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.minTrackBar.Maximum = 100;
             this.minTrackBar.Name = "minTrackBar";
@@ -423,24 +421,23 @@ namespace UfcWinformsClientApp
             // minLabel
             // 
             this.minLabel.AutoSize = true;
-            this.minLabel.Location = new System.Drawing.Point(17, 7);
+            this.minLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.minLabel.Location = new System.Drawing.Point(2, 7);
             this.minLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.minLabel.Name = "minLabel";
-            this.minLabel.Size = new System.Drawing.Size(28, 18);
+            this.minLabel.Size = new System.Drawing.Size(85, 17);
             this.minLabel.TabIndex = 8;
-            this.minLabel.Text = "Min";
-            this.minLabel.Click += new System.EventHandler(this.minLabel_Click);
+            this.minLabel.Text = "Min Height";
             // 
             // minValueLabel
             // 
             this.minValueLabel.AutoSize = true;
-            this.minValueLabel.Location = new System.Drawing.Point(205, 10);
+            this.minValueLabel.Location = new System.Drawing.Point(218, 7);
             this.minValueLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.minValueLabel.Name = "minValueLabel";
-            this.minValueLabel.Size = new System.Drawing.Size(28, 18);
+            this.minValueLabel.Size = new System.Drawing.Size(29, 20);
             this.minValueLabel.TabIndex = 9;
-            this.minValueLabel.Text = "Max";
-            this.minValueLabel.Click += new System.EventHandler(this.minValueLabel_Click);
+            this.minValueLabel.Text = "50";
             // 
             // sliderPanel
             // 
@@ -454,27 +451,29 @@ namespace UfcWinformsClientApp
             this.sliderPanel.Controls.Add(this.minLabel);
             this.sliderPanel.Controls.Add(this.minValueLabel);
             this.sliderPanel.Controls.Add(this.minTrackBar);
-            this.sliderPanel.Font = new System.Drawing.Font("Juice ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.sliderPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.sliderPanel.ForeColor = System.Drawing.Color.Purple;
             this.sliderPanel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.sliderPanel.Location = new System.Drawing.Point(404, 6);
+            this.sliderPanel.Location = new System.Drawing.Point(510, 11);
             this.sliderPanel.Margin = new System.Windows.Forms.Padding(2);
             this.sliderPanel.Name = "sliderPanel";
             this.sliderPanel.Size = new System.Drawing.Size(260, 110);
             this.sliderPanel.TabIndex = 10;
+            this.sliderPanel.Visible = false;
             // 
             // sliderCategoryLabel
             // 
             this.sliderCategoryLabel.AutoSize = true;
-            this.sliderCategoryLabel.Location = new System.Drawing.Point(109, 80);
+            this.sliderCategoryLabel.Location = new System.Drawing.Point(65, 84);
             this.sliderCategoryLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.sliderCategoryLabel.Name = "sliderCategoryLabel";
-            this.sliderCategoryLabel.Size = new System.Drawing.Size(0, 18);
+            this.sliderCategoryLabel.Size = new System.Drawing.Size(0, 20);
             this.sliderCategoryLabel.TabIndex = 13;
+            this.sliderCategoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // maxTrackBar
             // 
-            this.maxTrackBar.Location = new System.Drawing.Point(76, 43);
+            this.maxTrackBar.Location = new System.Drawing.Point(94, 37);
             this.maxTrackBar.Margin = new System.Windows.Forms.Padding(2);
             this.maxTrackBar.Maximum = 100;
             this.maxTrackBar.Name = "maxTrackBar";
@@ -487,24 +486,23 @@ namespace UfcWinformsClientApp
             // maxValueLabel
             // 
             this.maxValueLabel.AutoSize = true;
-            this.maxValueLabel.Location = new System.Drawing.Point(205, 43);
+            this.maxValueLabel.Location = new System.Drawing.Point(218, 43);
             this.maxValueLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.maxValueLabel.Name = "maxValueLabel";
-            this.maxValueLabel.Size = new System.Drawing.Size(28, 18);
+            this.maxValueLabel.Size = new System.Drawing.Size(29, 20);
             this.maxValueLabel.TabIndex = 11;
-            this.maxValueLabel.Text = "Max";
-            this.maxValueLabel.Click += new System.EventHandler(this.maxValueLabel_Click);
+            this.maxValueLabel.Text = "50";
             // 
             // maxLabel
             // 
             this.maxLabel.AutoSize = true;
-            this.maxLabel.Location = new System.Drawing.Point(17, 43);
+            this.maxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.maxLabel.Location = new System.Drawing.Point(2, 43);
             this.maxLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.maxLabel.Name = "maxLabel";
-            this.maxLabel.Size = new System.Drawing.Size(28, 18);
+            this.maxLabel.Size = new System.Drawing.Size(88, 17);
             this.maxLabel.TabIndex = 10;
-            this.maxLabel.Text = "Min";
-            this.maxLabel.Click += new System.EventHandler(this.maxLabel_Click);
+            this.maxLabel.Text = "Max Height";
             // 
             // panel2
             // 
@@ -512,29 +510,27 @@ namespace UfcWinformsClientApp
             this.panel2.Controls.Add(this.searchTextBox);
             this.panel2.Controls.Add(this.searchQueryLabel);
             this.panel2.Controls.Add(this.searchCategoryLabel);
-            this.panel2.Font = new System.Drawing.Font("Juice ITC", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.panel2.Location = new System.Drawing.Point(16, 8);
+            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.panel2.Location = new System.Drawing.Point(16, 13);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(384, 110);
+            this.panel2.Size = new System.Drawing.Size(474, 108);
             this.panel2.TabIndex = 11;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // searchAllButton
             // 
             this.searchAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchAllButton.AutoSize = true;
             this.searchAllButton.BackColor = System.Drawing.Color.Fuchsia;
             this.searchAllButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchAllButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.searchAllButton.FlatAppearance.BorderSize = 10;
             this.searchAllButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.searchAllButton.Font = new System.Drawing.Font("Juice ITC", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.searchAllButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.searchAllButton.ForeColor = System.Drawing.Color.Purple;
-            this.searchAllButton.Location = new System.Drawing.Point(941, 8);
+            this.searchAllButton.Location = new System.Drawing.Point(1044, 11);
             this.searchAllButton.Margin = new System.Windows.Forms.Padding(2);
             this.searchAllButton.Name = "searchAllButton";
-            this.searchAllButton.Size = new System.Drawing.Size(250, 110);
+            this.searchAllButton.Size = new System.Drawing.Size(245, 110);
             this.searchAllButton.TabIndex = 0;
             this.searchAllButton.Text = "Show All Fighters";
             this.searchAllButton.UseVisualStyleBackColor = false;
@@ -548,12 +544,12 @@ namespace UfcWinformsClientApp
             this.addFighterButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
             this.addFighterButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Fuchsia;
             this.addFighterButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addFighterButton.Font = new System.Drawing.Font("Juice ITC", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.addFighterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.addFighterButton.ForeColor = System.Drawing.Color.Purple;
-            this.addFighterButton.Location = new System.Drawing.Point(419, 342);
+            this.addFighterButton.Location = new System.Drawing.Point(510, 329);
             this.addFighterButton.Margin = new System.Windows.Forms.Padding(2);
             this.addFighterButton.Name = "addFighterButton";
-            this.addFighterButton.Size = new System.Drawing.Size(245, 90);
+            this.addFighterButton.Size = new System.Drawing.Size(260, 99);
             this.addFighterButton.TabIndex = 0;
             this.addFighterButton.Text = "Add Fighter";
             this.addFighterButton.UseVisualStyleBackColor = false;
@@ -565,12 +561,12 @@ namespace UfcWinformsClientApp
             this.editFighterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.editFighterButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.editFighterButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.editFighterButton.Font = new System.Drawing.Font("Juice ITC", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.editFighterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.editFighterButton.ForeColor = System.Drawing.Color.Purple;
-            this.editFighterButton.Location = new System.Drawing.Point(687, 342);
+            this.editFighterButton.Location = new System.Drawing.Point(783, 329);
             this.editFighterButton.Margin = new System.Windows.Forms.Padding(2);
             this.editFighterButton.Name = "editFighterButton";
-            this.editFighterButton.Size = new System.Drawing.Size(245, 90);
+            this.editFighterButton.Size = new System.Drawing.Size(245, 99);
             this.editFighterButton.TabIndex = 0;
             this.editFighterButton.Text = "Edit Fighter";
             this.editFighterButton.UseVisualStyleBackColor = false;
@@ -582,12 +578,12 @@ namespace UfcWinformsClientApp
             this.deleteFighterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.deleteFighterButton.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
             this.deleteFighterButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deleteFighterButton.Font = new System.Drawing.Font("Juice ITC", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.deleteFighterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.deleteFighterButton.ForeColor = System.Drawing.Color.Purple;
-            this.deleteFighterButton.Location = new System.Drawing.Point(946, 342);
+            this.deleteFighterButton.Location = new System.Drawing.Point(1044, 329);
             this.deleteFighterButton.Margin = new System.Windows.Forms.Padding(2);
             this.deleteFighterButton.Name = "deleteFighterButton";
-            this.deleteFighterButton.Size = new System.Drawing.Size(245, 90);
+            this.deleteFighterButton.Size = new System.Drawing.Size(245, 99);
             this.deleteFighterButton.TabIndex = 0;
             this.deleteFighterButton.Text = "Delete Fighter";
             this.deleteFighterButton.UseVisualStyleBackColor = false;
@@ -597,12 +593,12 @@ namespace UfcWinformsClientApp
             // 
             this.websiteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.websiteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.websiteButton.Font = new System.Drawing.Font("Juice ITC", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.websiteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.websiteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.websiteButton.Location = new System.Drawing.Point(20, 338);
+            this.websiteButton.Location = new System.Drawing.Point(16, 329);
             this.websiteButton.Margin = new System.Windows.Forms.Padding(2);
             this.websiteButton.Name = "websiteButton";
-            this.websiteButton.Size = new System.Drawing.Size(245, 90);
+            this.websiteButton.Size = new System.Drawing.Size(249, 99);
             this.websiteButton.TabIndex = 12;
             this.websiteButton.Text = "Go To Website";
             this.websiteButton.UseVisualStyleBackColor = false;
@@ -610,6 +606,7 @@ namespace UfcWinformsClientApp
             // 
             // toolTip1
             // 
+            this.toolTip1.Active = false;
             this.toolTip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.toolTip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.toolTip1.IsBalloon = true;
@@ -619,8 +616,8 @@ namespace UfcWinformsClientApp
             this.AcceptButton = this.searchButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1194, 439);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(227)))), ((int)(((byte)(254)))));
+            this.ClientSize = new System.Drawing.Size(1300, 439);
             this.Controls.Add(this.websiteButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.sliderPanel);
@@ -643,7 +640,6 @@ namespace UfcWinformsClientApp
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

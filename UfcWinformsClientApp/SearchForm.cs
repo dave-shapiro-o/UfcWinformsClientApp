@@ -106,18 +106,26 @@ namespace UfcWinformsClientApp
             {
                 case "Weight":
                     sliderPanel.Visible = true;             
-                    sliderCategoryLabel.Text = "Weight";
+                    sliderCategoryLabel.Text = "  Weight in lbs";
+                    minLabel.Text = "Min Weight";
+                    maxLabel.Text = "Max Weight";
                     SetMinTrackBar(3);
                     SetMaxTrackBar(3);
+                    toolTip1.Active = true;
                     break;
                 case "Height":
                     sliderPanel.Visible = true;                    
-                    sliderCategoryLabel.Text = "Height";
+                    sliderCategoryLabel.Text = "Height in inches";
+                    minLabel.Text = "Min Height";
+                    maxLabel.Text = "Max Height";
                     SetMinTrackBar(1);
                     SetMaxTrackBar(1);
+                    toolTip1.Active = true;
                     break;
                 default:
                     sliderPanel.Visible = false;
+                    toolTip1.Active = false;
+
                     break;
             }
         }
@@ -230,46 +238,6 @@ namespace UfcWinformsClientApp
                 nicknames.Add(Convert.ToString(row["Nickname"]));
                 countries.Add(Convert.ToString(row["Country"]));
             }
-        }
-
-        private void maxValueLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void minValueLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void minLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void maxLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void searchQueryLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void searchTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }   
 }
